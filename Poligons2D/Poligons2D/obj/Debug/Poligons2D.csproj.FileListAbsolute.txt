@@ -1,0 +1,15 @@
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.exe.config
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.exe
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.pdb
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.dll
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.xml
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.AssemblyReference.cache
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.FrmMain.resources
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.Properties.Resources.resources
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.GenerateResource.cache
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.CoreCompileInputs.cache
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.CopyComplete
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.exe
+C:\Users\xavii\Desktop\DAM 3\C#\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.pdb

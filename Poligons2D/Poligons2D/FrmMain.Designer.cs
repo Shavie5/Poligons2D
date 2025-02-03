@@ -28,166 +28,195 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbPoligons = new System.Windows.Forms.Label();
-            this.dgPersonatges = new System.Windows.Forms.DataGridView();
+            this.dgPoligons = new System.Windows.Forms.DataGridView();
             this.cbGrup = new System.Windows.Forms.ComboBox();
             this.lbGrup = new System.Windows.Forms.Label();
             this.tbInfo = new System.Windows.Forms.TextBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.lbInfo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDibuixos = new System.Windows.Forms.Panel();
             this.lbDibuixos = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPersonatges)).BeginInit();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // lbPoligons
             // 
-            this.lbPoligons.BackColor = System.Drawing.Color.LightGray;
+            this.lbPoligons.BackColor = System.Drawing.Color.MidnightBlue;
             this.lbPoligons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbPoligons.Location = new System.Drawing.Point(12, 53);
+            this.lbPoligons.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPoligons.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbPoligons.Location = new System.Drawing.Point(16, 69);
+            this.lbPoligons.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbPoligons.Name = "lbPoligons";
-            this.lbPoligons.Padding = new System.Windows.Forms.Padding(3);
-            this.lbPoligons.Size = new System.Drawing.Size(535, 25);
+            this.lbPoligons.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbPoligons.Size = new System.Drawing.Size(713, 32);
             this.lbPoligons.TabIndex = 8;
             this.lbPoligons.Text = "Poligons";
             this.lbPoligons.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgPersonatges
+            // dgPoligons
             // 
-            this.dgPersonatges.AllowUserToAddRows = false;
-            this.dgPersonatges.AllowUserToDeleteRows = false;
-            this.dgPersonatges.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgPersonatges.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgPersonatges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgPersonatges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPersonatges.Location = new System.Drawing.Point(12, 81);
-            this.dgPersonatges.MultiSelect = false;
-            this.dgPersonatges.Name = "dgPersonatges";
-            this.dgPersonatges.ReadOnly = true;
-            this.dgPersonatges.RowHeadersVisible = false;
-            this.dgPersonatges.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPersonatges.Size = new System.Drawing.Size(535, 644);
-            this.dgPersonatges.TabIndex = 9;
+            this.dgPoligons.AllowUserToAddRows = false;
+            this.dgPoligons.AllowUserToDeleteRows = false;
+            this.dgPoligons.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgPoligons.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgPoligons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPoligons.Location = new System.Drawing.Point(16, 106);
+            this.dgPoligons.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dgPoligons.MultiSelect = false;
+            this.dgPoligons.Name = "dgPoligons";
+            this.dgPoligons.ReadOnly = true;
+            this.dgPoligons.RowHeadersVisible = false;
+            this.dgPoligons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPoligons.Size = new System.Drawing.Size(713, 843);
+            this.dgPoligons.TabIndex = 9;
             // 
             // cbGrup
             // 
             this.cbGrup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGrup.FormattingEnabled = true;
-            this.cbGrup.Items.AddRange(new object[] {
-            "Tots",
-            "Balrogs",
-            "Elfs",
-            "Hobbits",
-            "Humans",
-            "Mags",
-            "Nans",
-            "Nazguls",
-            "Orcs",
-            "Trolls",
-            "UrukHais"});
-            this.cbGrup.Location = new System.Drawing.Point(142, 12);
+            this.cbGrup.Location = new System.Drawing.Point(190, 16);
+            this.cbGrup.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbGrup.Name = "cbGrup";
-            this.cbGrup.Size = new System.Drawing.Size(343, 21);
+            this.cbGrup.Size = new System.Drawing.Size(719, 25);
             this.cbGrup.TabIndex = 10;
             // 
             // lbGrup
             // 
-            this.lbGrup.BackColor = System.Drawing.Color.LightGray;
+            this.lbGrup.BackColor = System.Drawing.Color.MidnightBlue;
             this.lbGrup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbGrup.Location = new System.Drawing.Point(12, 12);
+            this.lbGrup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGrup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbGrup.Location = new System.Drawing.Point(16, 16);
+            this.lbGrup.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbGrup.Name = "lbGrup";
-            this.lbGrup.Padding = new System.Windows.Forms.Padding(3);
-            this.lbGrup.Size = new System.Drawing.Size(124, 25);
+            this.lbGrup.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbGrup.Size = new System.Drawing.Size(164, 32);
             this.lbGrup.TabIndex = 11;
             this.lbGrup.Text = "Tria un grup";
             this.lbGrup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbInfo
             // 
-            this.tbInfo.Location = new System.Drawing.Point(554, 620);
+            this.tbInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbInfo.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbInfo.Location = new System.Drawing.Point(738, 811);
+            this.tbInfo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tbInfo.Multiline = true;
             this.tbInfo.Name = "tbInfo";
-            this.tbInfo.Size = new System.Drawing.Size(513, 105);
+            this.tbInfo.Size = new System.Drawing.Size(683, 137);
             this.tbInfo.TabIndex = 12;
             // 
             // pbAdd
             // 
-            this.pbAdd.Location = new System.Drawing.Point(12, 735);
+            this.pbAdd.Image = global::Poligons2D.Properties.Resources.add50;
+            this.pbAdd.Location = new System.Drawing.Point(16, 962);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(51, 52);
+            this.pbAdd.Size = new System.Drawing.Size(67, 68);
             this.pbAdd.TabIndex = 13;
             this.pbAdd.TabStop = false;
             // 
             // lbInfo
             // 
-            this.lbInfo.BackColor = System.Drawing.Color.LightGray;
+            this.lbInfo.BackColor = System.Drawing.Color.MidnightBlue;
             this.lbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbInfo.Location = new System.Drawing.Point(554, 581);
+            this.lbInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbInfo.Location = new System.Drawing.Point(738, 760);
+            this.lbInfo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.lbInfo.Size = new System.Drawing.Size(513, 25);
+            this.lbInfo.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbInfo.Size = new System.Drawing.Size(683, 32);
             this.lbInfo.TabIndex = 14;
             this.lbInfo.Text = "Informació de poligon";
             this.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // pnlDibuixos
             // 
-            this.panel1.Location = new System.Drawing.Point(554, 81);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 485);
-            this.panel1.TabIndex = 15;
+            this.pnlDibuixos.BackColor = System.Drawing.Color.White;
+            this.pnlDibuixos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDibuixos.Location = new System.Drawing.Point(738, 106);
+            this.pnlDibuixos.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pnlDibuixos.Name = "pnlDibuixos";
+            this.pnlDibuixos.Size = new System.Drawing.Size(683, 633);
+            this.pnlDibuixos.TabIndex = 15;
             // 
             // lbDibuixos
             // 
-            this.lbDibuixos.BackColor = System.Drawing.Color.LightGray;
+            this.lbDibuixos.BackColor = System.Drawing.Color.MidnightBlue;
             this.lbDibuixos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbDibuixos.Location = new System.Drawing.Point(553, 53);
+            this.lbDibuixos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDibuixos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbDibuixos.Location = new System.Drawing.Point(737, 69);
+            this.lbDibuixos.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbDibuixos.Name = "lbDibuixos";
-            this.lbDibuixos.Padding = new System.Windows.Forms.Padding(3);
-            this.lbDibuixos.Size = new System.Drawing.Size(514, 25);
+            this.lbDibuixos.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbDibuixos.Size = new System.Drawing.Size(684, 32);
             this.lbDibuixos.TabIndex = 16;
             this.lbDibuixos.Text = "Dibuixar Poligons";
             this.lbDibuixos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbDelete
+            // 
+            this.pbDelete.Image = global::Poligons2D.Properties.Resources.cancel50;
+            this.pbDelete.Location = new System.Drawing.Point(113, 962);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(67, 68);
+            this.pbDelete.TabIndex = 17;
+            this.pbDelete.TabStop = false;
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 799);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(1434, 1044);
+            this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.lbDibuixos);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlDibuixos);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.tbInfo);
             this.Controls.Add(this.lbGrup);
             this.Controls.Add(this.cbGrup);
-            this.Controls.Add(this.dgPersonatges);
+            this.Controls.Add(this.dgPoligons);
             this.Controls.Add(this.lbPoligons);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
-            ((System.ComponentModel.ISupportInitialize)(this.dgPersonatges)).EndInit();
+            this.Load += new System.EventHandler(this.FrmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbPoligons;
-        private System.Windows.Forms.DataGridView dgPersonatges;
+        private System.Windows.Forms.DataGridView dgPoligons;
         private System.Windows.Forms.ComboBox cbGrup;
         private System.Windows.Forms.Label lbGrup;
         private System.Windows.Forms.TextBox tbInfo;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.Label lbInfo;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDibuixos;
         private System.Windows.Forms.Label lbDibuixos;
+        private System.Windows.Forms.PictureBox pbDelete;
+        protected System.Windows.Forms.Label lbPoligons;
     }
 }
 

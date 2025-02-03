@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Poligons2DModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cercle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Radi" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_cercle_poligon" FromRole="Cercle" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Elipse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RadiA" Type="Int32" />
+    <Property Name="RadiB" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_elipse_poligon" FromRole="Elipse" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Hexagon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Costat" Type="Int32" />
+    <Property Name="Apotema" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_hexagon_poligon" FromRole="Hexagon" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Octogon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Costat" Type="Int32" />
+    <Property Name="Apotema" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_octogon_poligon" FromRole="Octogon" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Pentagon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Costat" Type="Int32" />
+    <Property Name="Apotema" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_pentagon_poligon" FromRole="Pentagon" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Poligon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TeInterior" Type="Boolean" />
+    <Property Name="TipusPoligon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cercle" Relationship="Self.fk_cercle_poligon" FromRole="Poligon" ToRole="Cercle" />
+    <NavigationProperty Name="Elipse" Relationship="Self.fk_elipse_poligon" FromRole="Poligon" ToRole="Elipse" />
+    <NavigationProperty Name="Hexagon" Relationship="Self.fk_hexagon_poligon" FromRole="Poligon" ToRole="Hexagon" />
+    <NavigationProperty Name="Octogon" Relationship="Self.fk_octogon_poligon" FromRole="Poligon" ToRole="Octogon" />
+    <NavigationProperty Name="Pentagon" Relationship="Self.fk_pentagon_poligon" FromRole="Poligon" ToRole="Pentagon" />
+    <NavigationProperty Name="Quadrats" Relationship="Self.fk_quadrat_poligon" FromRole="Poligon" ToRole="Quadrats" />
+    <NavigationProperty Name="Rombre" Relationship="Self.fk_rombre_poligon" FromRole="Poligon" ToRole="Rombre" />
+    <NavigationProperty Name="Triangle" Relationship="Self.fk_triangle_poligon" FromRole="Poligon" ToRole="Triangle" />
+  </EntityType>
+  <EntityType Name="Quadrats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Mida" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_quadrat_poligon" FromRole="Quadrats" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Rombre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Base" Type="Int32" />
+    <Property Name="Alçada" Type="Int32" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_rombre_poligon" FromRole="Rombre" ToRole="Poligon" />
+  </EntityType>
+  <EntityType Name="Triangle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Base" Type="Int32" />
+    <Property Name="Alçada" Type="Int32" />
+    <Property Name="Tipus" Type="Boolean" />
+    <NavigationProperty Name="Poligon" Relationship="Self.fk_triangle_poligon" FromRole="Triangle" ToRole="Poligon" />
+  </EntityType>
+  <Association Name="fk_cercle_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Cercle" Type="Self.Cercle" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cercle">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_elipse_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Elipse" Type="Self.Elipse" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Elipse">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hexagon_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Hexagon" Type="Self.Hexagon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hexagon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_octogon_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Octogon" Type="Self.Octogon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Octogon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pentagon_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Pentagon" Type="Self.Pentagon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pentagon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_quadrat_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Quadrats" Type="Self.Quadrats" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Quadrats">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_rombre_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Rombre" Type="Self.Rombre" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rombre">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_triangle_poligon">
+    <End Role="Poligon" Type="Self.Poligon" Multiplicity="1" />
+    <End Role="Triangle" Type="Self.Triangle" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Poligon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Triangle">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Poligons2DEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cercle" EntityType="Self.Cercle" />
+    <EntitySet Name="Elipse" EntityType="Self.Elipse" />
+    <EntitySet Name="Hexagon" EntityType="Self.Hexagon" />
+    <EntitySet Name="Octogon" EntityType="Self.Octogon" />
+    <EntitySet Name="Pentagon" EntityType="Self.Pentagon" />
+    <EntitySet Name="Poligon" EntityType="Self.Poligon" />
+    <EntitySet Name="Quadrats" EntityType="Self.Quadrats" />
+    <EntitySet Name="Rombre" EntityType="Self.Rombre" />
+    <EntitySet Name="Triangle" EntityType="Self.Triangle" />
+    <AssociationSet Name="fk_cercle_poligon" Association="Self.fk_cercle_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Cercle" EntitySet="Cercle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_elipse_poligon" Association="Self.fk_elipse_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Elipse" EntitySet="Elipse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hexagon_poligon" Association="Self.fk_hexagon_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Hexagon" EntitySet="Hexagon" />
+    </AssociationSet>
+    <AssociationSet Name="fk_octogon_poligon" Association="Self.fk_octogon_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Octogon" EntitySet="Octogon" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pentagon_poligon" Association="Self.fk_pentagon_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Pentagon" EntitySet="Pentagon" />
+    </AssociationSet>
+    <AssociationSet Name="fk_quadrat_poligon" Association="Self.fk_quadrat_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Quadrats" EntitySet="Quadrats" />
+    </AssociationSet>
+    <AssociationSet Name="fk_rombre_poligon" Association="Self.fk_rombre_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Rombre" EntitySet="Rombre" />
+    </AssociationSet>
+    <AssociationSet Name="fk_triangle_poligon" Association="Self.fk_triangle_poligon">
+      <End Role="Poligon" EntitySet="Poligon" />
+      <End Role="Triangle" EntitySet="Triangle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
