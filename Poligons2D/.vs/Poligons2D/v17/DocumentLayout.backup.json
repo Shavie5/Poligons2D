@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\yasin\\Desktop\\DAM\\M7-Interf\u00EDcies\\M7UF1\\Servidor\\PHP\\Poligons2D\\Poligons2D\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4483ECB1-58E1-4126-A2CC-9611209F0122}|Poligons2D\\Poligons2D.csproj|c:\\users\\yasin\\desktop\\dam\\m7-interf\u00EDcies\\m7uf1\\servidor\\php\\poligons2d\\poligons2d\\poligons2d\\classes\\clpoligons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4483ECB1-58E1-4126-A2CC-9611209F0122}|Poligons2D\\Poligons2D.csproj|solutionrelative:poligons2d\\classes\\clpoligons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4483ECB1-58E1-4126-A2CC-9611209F0122}|Poligons2D\\Poligons2D.csproj|C:\\Users\\yasin\\Desktop\\DAM\\M7-Interf\u00EDcies\\M7UF1\\Servidor\\PHP\\Poligons2D\\Poligons2D\\poligons2d\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4483ECB1-58E1-4126-A2CC-9611209F0122}|Poligons2D\\Poligons2D.csproj|solutionrelative:poligons2d\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClPoligons.cs",
+              "DocumentMoniker": "C:\\Users\\yasin\\Desktop\\DAM\\M7-Interf\u00EDcies\\M7UF1\\Servidor\\PHP\\Poligons2D\\Poligons2D\\Poligons2D\\CLASSES\\ClPoligons.cs",
+              "RelativeDocumentMoniker": "Poligons2D\\CLASSES\\ClPoligons.cs",
+              "ToolTip": "C:\\Users\\yasin\\Desktop\\DAM\\M7-Interf\u00EDcies\\M7UF1\\Servidor\\PHP\\Poligons2D\\Poligons2D\\Poligons2D\\CLASSES\\ClPoligons.cs",
+              "RelativeToolTip": "Poligons2D\\CLASSES\\ClPoligons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T16:29:19.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmMain.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\yasin\\Desktop\\DAM\\M7-Interf\u00EDcies\\M7UF1\\Servidor\\PHP\\Poligons2D\\Poligons2D\\Poligons2D\\FrmMain.cs",
+              "RelativeDocumentMoniker": "Poligons2D\\FrmMain.cs",
+              "ToolTip": "C:\\Users\\xavii\\Desktop\\DAM 3\\C#\\M6UF2\\Practiques\\Poligons2D\\Poligons2D\\FrmMain.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\xavii\\Desktop\\DAM 3\\C#\\M6UF2\\Practiques\\Poligons2D\\Poligons2D\\FrmMain.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2025-01-29T16:29:20.058Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
