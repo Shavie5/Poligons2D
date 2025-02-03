@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lbPersonatges = new System.Windows.Forms.Label();
+            this.lbPoligons = new System.Windows.Forms.Label();
             this.dgPersonatges = new System.Windows.Forms.DataGridView();
             this.cbGrup = new System.Windows.Forms.ComboBox();
             this.lbGrup = new System.Windows.Forms.Label();
@@ -37,22 +37,22 @@
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.lbInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbDibuixos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonatges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbPersonatges
+            // lbPoligons
             // 
-            this.lbPersonatges.BackColor = System.Drawing.Color.LightGray;
-            this.lbPersonatges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbPersonatges.Location = new System.Drawing.Point(12, 53);
-            this.lbPersonatges.Name = "lbPersonatges";
-            this.lbPersonatges.Padding = new System.Windows.Forms.Padding(3);
-            this.lbPersonatges.Size = new System.Drawing.Size(535, 25);
-            this.lbPersonatges.TabIndex = 8;
-            this.lbPersonatges.Text = "Personatges";
-            this.lbPersonatges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbPoligons.BackColor = System.Drawing.Color.LightGray;
+            this.lbPoligons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbPoligons.Location = new System.Drawing.Point(12, 53);
+            this.lbPoligons.Name = "lbPoligons";
+            this.lbPoligons.Padding = new System.Windows.Forms.Padding(3);
+            this.lbPoligons.Size = new System.Drawing.Size(535, 25);
+            this.lbPoligons.TabIndex = 8;
+            this.lbPoligons.Text = "Poligons";
+            this.lbPoligons.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgPersonatges
             // 
@@ -131,7 +131,7 @@
             this.lbInfo.Padding = new System.Windows.Forms.Padding(3);
             this.lbInfo.Size = new System.Drawing.Size(513, 25);
             this.lbInfo.TabIndex = 14;
-            this.lbInfo.Text = "Informació del personatge";
+            this.lbInfo.Text = "Informació de poligon";
             this.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -141,24 +141,24 @@
             this.panel1.Size = new System.Drawing.Size(513, 485);
             this.panel1.TabIndex = 15;
             // 
-            // label1
+            // lbDibuixos
             // 
-            this.label1.BackColor = System.Drawing.Color.LightGray;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(553, 53);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(3);
-            this.label1.Size = new System.Drawing.Size(514, 25);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Personatges";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbDibuixos.BackColor = System.Drawing.Color.LightGray;
+            this.lbDibuixos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbDibuixos.Location = new System.Drawing.Point(553, 53);
+            this.lbDibuixos.Name = "lbDibuixos";
+            this.lbDibuixos.Padding = new System.Windows.Forms.Padding(3);
+            this.lbDibuixos.Size = new System.Drawing.Size(514, 25);
+            this.lbDibuixos.TabIndex = 16;
+            this.lbDibuixos.Text = "Dibuixar Poligons";
+            this.lbDibuixos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 799);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbDibuixos);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbInfo);
             this.Controls.Add(this.pbAdd);
@@ -166,7 +166,7 @@
             this.Controls.Add(this.lbGrup);
             this.Controls.Add(this.cbGrup);
             this.Controls.Add(this.dgPersonatges);
-            this.Controls.Add(this.lbPersonatges);
+            this.Controls.Add(this.lbPoligons);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
@@ -179,7 +179,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbPersonatges;
+        private System.Windows.Forms.Label lbPoligons;
         private System.Windows.Forms.DataGridView dgPersonatges;
         private System.Windows.Forms.ComboBox cbGrup;
         private System.Windows.Forms.Label lbGrup;
@@ -187,7 +187,7 @@
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.Label lbInfo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDibuixos;
     }
 }
 
