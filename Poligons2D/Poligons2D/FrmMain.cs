@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace Poligons2D
 {
     public partial class FrmMain : Form
     {
-        private Poligons2DEntities poligonsContext { get; set; } = new Poligons2DEntities();       // necessitem una instància del Context
+        private Poligons2DEntities2 poligonsContext { get; set; } = new Poligons2DEntities2();       // necessitem una instància del Context
 
         public FrmMain()
         {
@@ -23,6 +24,8 @@ namespace Poligons2D
         {
             resizeItems();
             testConnexio();
+            getPoligons();
+            
         }
 
         #region *****************POSITIONS****************
@@ -99,6 +102,29 @@ namespace Poligons2D
             Cursor = Cursors.Default;
             return xb;
         }
+
+        private void getPoligons()
+        {
+            Cursor = Cursors.WaitCursor;
+            var qryPoligons = (from p in poligonsContext.Poligon
+                                 orderby p.Id
+                                 select new
+                                 {
+                                     Id = p.Id,
+                                     Area = p.Area,
+                                     Color = p.Color,
+                                     Interior = p.TeInterior,
+                                     Tipus = p.TipusPoligon
+
+                                 });
+
+            dgPoligons.DataSource = qryPoligons.ToList();
+
+          
+
+            Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region*********************ALTRESFUNCIONS****************
