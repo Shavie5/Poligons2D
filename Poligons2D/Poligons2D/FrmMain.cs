@@ -22,10 +22,11 @@ namespace Poligons2D
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            chk_totes.Checked = false;
             resizeItems();
             testConnexio();
             getPoligons();
-            
+            omplirComboBox();
         }
 
         #region *****************POSITIONS****************
@@ -102,7 +103,6 @@ namespace Poligons2D
             Cursor = Cursors.Default;
             return xb;
         }
-
         private void getPoligons()
         {
             Cursor = Cursors.WaitCursor;
@@ -127,6 +127,7 @@ namespace Poligons2D
 
         #endregion
 
+
         #region*********************ALTRESFUNCIONS****************
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -136,5 +137,60 @@ namespace Poligons2D
             }
         }
         #endregion
+
+        private void cbGrup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           if(cbGrup != null)
+           {
+                seleccionarPerTipus();
+           }
+        }
+
+        private void chk_totes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_totes.Checked)
+            {
+                cbGrup.Enabled = false;
+                getPoligons();
+            }
+            else
+            {
+                cbGrup.Enabled = true;
+                seleccionarPerTipus();
+            }
+
+        }
+
+        private void omplirComboBox()
+        {
+            if (dgPoligons.SelectedRows.Count > 0)
+            {
+                Cursor = Cursors.WaitCursor;
+                var qryCmbPoligon = (from p in poligonsContext.Poligon
+                                     orderby p.TipusPoligon
+                                     select p.TipusPoligon);
+
+                cbGrup.DataSource = qryCmbPoligon.ToList().Distinct().ToList(); ;
+                Cursor = Cursors.Default;
+
+            }
+        }
+
+        private void seleccionarPerTipus()
+        {
+            var qrySeleccionarTipus = (from p in poligonsContext.Poligon
+                                       orderby p.Id
+                                       where p.TipusPoligon == cbGrup.SelectedValue.ToString()
+                                       select new
+                                       {
+                                           Id = p.Id,
+                                           Area = p.Area,
+                                           Color = p.Color,
+                                           Interior = p.TeInterior,
+                                           Tipus = p.TipusPoligon
+                                       });
+            dgPoligons.DataSource = qrySeleccionarTipus.ToList();
+            Cursor = Cursors.Default;
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.pnlDibuixos = new System.Windows.Forms.Panel();
             this.lbDibuixos = new System.Windows.Forms.Label();
             this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.chk_totes = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
@@ -89,6 +90,7 @@
             this.cbGrup.Name = "cbGrup";
             this.cbGrup.Size = new System.Drawing.Size(719, 25);
             this.cbGrup.TabIndex = 10;
+            this.cbGrup.SelectedIndexChanged += new System.EventHandler(this.cbGrup_SelectedIndexChanged);
             // 
             // lbGrup
             // 
@@ -177,12 +179,24 @@
             this.pbDelete.TabIndex = 17;
             this.pbDelete.TabStop = false;
             // 
+            // chk_totes
+            // 
+            this.chk_totes.AutoSize = true;
+            this.chk_totes.Location = new System.Drawing.Point(927, 18);
+            this.chk_totes.Name = "chk_totes";
+            this.chk_totes.Size = new System.Drawing.Size(51, 21);
+            this.chk_totes.TabIndex = 18;
+            this.chk_totes.Text = "Tots";
+            this.chk_totes.UseVisualStyleBackColor = true;
+            this.chk_totes.CheckedChanged += new System.EventHandler(this.chk_totes_CheckedChanged);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1434, 1044);
+            this.Controls.Add(this.chk_totes);
             this.Controls.Add(this.pbDelete);
             this.Controls.Add(this.lbDibuixos);
             this.Controls.Add(this.pnlDibuixos);
@@ -218,6 +232,7 @@
         private System.Windows.Forms.Label lbDibuixos;
         private System.Windows.Forms.PictureBox pbDelete;
         protected System.Windows.Forms.Label lbPoligons;
+        private System.Windows.Forms.CheckBox chk_totes;
     }
 }
 
