@@ -23,6 +23,8 @@ namespace Poligons2D
         {
             resizeItems();
             testConnexio();
+            omplirComboBox();
+            getDadesSenseFiltre();
         }
 
         #region *****************POSITIONS****************
@@ -99,7 +101,34 @@ namespace Poligons2D
             Cursor = Cursors.Default;
             return xb;
         }
+        private void omplirComboBox()
+        {
+            // declarem una consulta de tots els Departaments, utilitzem llenguatge LINQ
+            var qryRegions = from r in poligonsContext.Poligon
+                             orderby r.TipusPoligon
+                             select r;
+
+            // omplim el combobox de regions
+            cbGrup.DataSource = qryRegions.ToList();
+            cbGrup.DisplayMember = "TipusPoligon";
+            cbGrup.ValueMember = "ID";
+            cbGrup.SelectedIndex = 0;
+        }
         #endregion
+
+        private void getDadesSenseFiltre()
+        {
+            var qryPoligon = from r in poligonsContext.Poligon
+                          orderby r.Id
+                          select new
+                          {
+                              id = r.Id,
+                              nom = r.TipusPoligon
+                          };
+
+
+            dgPoligons.DataSource = qryPoligon.ToList();
+        }
 
         #region*********************ALTRESFUNCIONS****************
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)

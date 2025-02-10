@@ -67,7 +67,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgPoligons.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgPoligons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPoligons.Location = new System.Drawing.Point(16, 106);
