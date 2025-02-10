@@ -12,6 +12,8 @@ namespace Poligons2D
 {
     public partial class FrmMain : Form
     {
+        private Poligons2DEntities poligonsContext { get; set; } = new Poligons2DEntities();       // necessitem una instància del Context
+
         public FrmMain()
         {
             InitializeComponent();
@@ -20,10 +22,11 @@ namespace Poligons2D
         private void FrmMain_Load(object sender, EventArgs e)
         {
             resizeItems();
-            
+            testConnexio();
         }
 
-       private void resizeItems()
+        #region *****************POSITIONS****************
+        private void resizeItems()
         {
             this.WindowState = FormWindowState.Maximized;
             #region ********************** LABEL POLIGONS *********************************
@@ -72,6 +75,40 @@ namespace Poligons2D
             cbGrup.Location = new Point(lbGrup.Width + 40, 25);
             #endregion
         }
+        #endregion
 
+        #region ******************SQL********************
+        private Boolean testConnexio()
+        {
+            Boolean xb = false;
+
+            Cursor = Cursors.WaitCursor;
+            try
+            {
+                xb = (poligonsContext.Database.Connection.State == ConnectionState.Open);
+                if (!xb)
+                {
+                    poligonsContext.Database.Connection.Open();
+                    xb = true;
+                }
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show(excp.Message, "Excepció", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            Cursor = Cursors.Default;
+            return xb;
+        }
+        #endregion
+
+        #region*********************ALTRESFUNCIONS****************
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Segur que vols sortir?", "QÜESTIÓ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+        #endregion
     }
 }
