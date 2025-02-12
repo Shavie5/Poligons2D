@@ -12,11 +12,12 @@ namespace Poligons2D.CLASSES
 {
     public class ClBd
     {
-        
-        public String cadenaConnexio = @"Data Source=DESKTOP-M1DO2MK;Initial Catalog=Poligons2D;Integrated Security=True";
+        //sintaxis => Data Source=DESKTOP-M1DO2MK;Initial Catalog=Poligons2D;Integrated Security=True
+
+        //public String cadenaConnexio = @"Data Source=DESKTOP-M1DO2MK;Initial Catalog=Poligons2D;Integrated Security=True";
+        public String cadenaConnexio = @"Data Source=YASINELED\SQLEXPRESS;Initial Catalog=Poligons2D;Integrated Security=True";
 
 
-        
         SqlConnection dbConnexio { get; set; }        // Permet establir la connexió amb SQL Server
         SqlDataAdapter dbAdaptador { get; set; }      // El DataAdapter és l'intermediari que executarà les instruccions SQL a la base de dades  
 
@@ -54,7 +55,22 @@ namespace Poligons2D.CLASSES
             }
             return xb;
         }
+        public Boolean executarOrdre(String xsql)
+        {
+            Boolean xb = false;
+            SqlCommand xcommand = new SqlCommand(xsql, dbConnexio);
 
+            try
+            {
+                xcommand.ExecuteNonQuery();
+                xb = true;
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show(excp.Message, "Excepció - ferOperacio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return xb;
+        }
         public Boolean obrirConnexio()
         {
             Boolean xb = false;

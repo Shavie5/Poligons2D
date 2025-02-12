@@ -22,11 +22,22 @@ namespace Poligons2D.CLASSES.SUBCLASSES
             dibuixarFigura();
         }
 
+        public ClRectangle(ClBd xbd, String xNom, int xBase, int xAlçada, String xColor, int xTeInterior, String xGrup) : base(xbd, xNom, xColor, xTeInterior, xGrup)
+        {
+            String xsql = $"INSERT INTO Rectangle (Nom, Base,Alçada) VALUES('{xNom}', {xBase},{xAlçada})";
+            if (xbd.executarOrdre(xsql))
+            {
+                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No s'ha pogut inserir el {xGrup} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public ClRectangle(Form xfrmMain, Point xcentre, Color xcolor, int xbase, int xalçada) : base(xfrmMain, xcentre, xcolor)
         {
             Base = xbase;
             Alçada = xalçada;
-            colorInterior = xcolor;
             dibuixarFigura();
         }
         private void dibuixarFigura()
@@ -52,6 +63,14 @@ namespace Poligons2D.CLASSES.SUBCLASSES
                 e.Graphics.FillRectangle(new SolidBrush(colorInterior), r);
             }
             e.Graphics.DrawRectangle(p, r);
+        }
+        public override Double Area()
+        {
+            return Base * Alçada;
+        }
+        public override Double Perimetre()
+        {
+            return 2 * (Base + Alçada);
         }
     }
 }

@@ -15,16 +15,27 @@ namespace Poligons2D.CLASSES.SUBCLASSES
 
         private Point posVertex {  get; set; }
 
-        public ClQuadrat(Form xfrmMain, Point xcentre, int xmida): base(xfrmMain, xcentre)
+        public ClQuadrat(Form xfrmMain, Point xcentre, int xmida) : base(xfrmMain, xcentre)
         {
             Mida = xmida;
             dibuixarFigura();
+        }
+        public ClQuadrat(ClBd xbd, String xNom,int xmida, String xColor, int xTeInterior, String xGrup): base(xbd, xNom,xColor,xTeInterior, xGrup)
+        {
+            String xsql = $"INSERT INTO Quadrat (Nom, Mida) VALUES('{xNom}', {xmida})";
+            if (xbd.executarOrdre(xsql))
+            {
+                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No s'ha pogut inserir el {xGrup} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public ClQuadrat(Form xfrmMain, Point xcentre, Color xcolor, int xmida) : base(xfrmMain, xcentre, xcolor)
         {
             Mida = xmida;
-            colorInterior = xcolor;
             dibuixarFigura();
         }
         private void dibuixarFigura()
@@ -50,6 +61,14 @@ namespace Poligons2D.CLASSES.SUBCLASSES
                 e.Graphics.FillRectangle(new SolidBrush(colorInterior), r);
             }
             e.Graphics.DrawRectangle(p, r);
+        }
+        public override Double Area()
+        {
+            return (Mida * Mida);
+        }
+        public override Double Perimetre()
+        {
+            return 4 * Mida;
         }
     }
 }

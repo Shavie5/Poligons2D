@@ -24,13 +24,24 @@ namespace Poligons2D.CLASSES.SUBCLASSES
             Height = radi*2;
             dibuixarFigura();
         }
+        public ClCercle(ClBd xbd, String xNom, int xRadi, String xColor, int xTeInterior, String xGrup) : base(xbd, xNom, xColor, xTeInterior, xGrup)
+        {
+            String xsql = $"INSERT INTO Cercle (Nom, Radi) VALUES('{xNom}', {xRadi})";
+            if (xbd.executarOrdre(xsql))
+            {
+                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No s'ha pogut inserir el {xGrup} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public ClCercle(Form xfrmMain, Point xcentre, Color xcolor, int xradi) : base(xfrmMain, xcentre, xcolor)
         {
             radi = xradi;
             Width = radi * 2;
             Height = radi * 2;
-            colorInterior = xcolor;
             dibuixarFigura();
         }
         private void dibuixarFigura()
@@ -53,6 +64,14 @@ namespace Poligons2D.CLASSES.SUBCLASSES
                 e.Graphics.FillEllipse(new SolidBrush(colorInterior), r);
             }
             e.Graphics.DrawEllipse(p, r);
+        }
+        public override Double Area()
+        {
+            return Math.PI * radi * radi;
+        }
+        public override Double Perimetre()
+        {
+            return 2 * Math.PI * radi;
         }
     }
 

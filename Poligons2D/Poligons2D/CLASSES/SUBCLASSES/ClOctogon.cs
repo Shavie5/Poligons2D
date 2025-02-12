@@ -20,6 +20,18 @@ namespace Poligons2D.CLASSES.SUBCLASSES
             Mida = xmida;
             dibuixarFigura();
         }
+        public ClOctogon(ClBd xbd, String xNom, int xCostat, String xColor, int xTeInterior, String xGrup) : base(xbd, xNom, xColor, xTeInterior, xGrup)
+        {
+            String xsql = $"INSERT INTO Octogon (Nom, Costat) VALUES('{xNom}', {xCostat})";
+            if (xbd.executarOrdre(xsql))
+            {
+                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No s'ha pogut inserir el {xGrup} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public ClOctogon(Form xfrmMain, Point xcentre, Color xcolor, int xmida) : base(xfrmMain, xcentre, xcolor)
         {
@@ -29,9 +41,11 @@ namespace Poligons2D.CLASSES.SUBCLASSES
         }
         private void dibuixarFigura()
         {
+            int panelSize = (Mida * 2);
+
             apotema = calcularApotema();
-            posVertex = new Point((posCentre.X - (Mida / 2)), (posCentre.Y - (Mida / 2)));
-            pnl.Size = new Size(Mida * 2, Mida * 2);
+            posVertex = new Point((posCentre.X - (panelSize / 2)), (posCentre.Y - (panelSize / 2)));
+            pnl.Size = new Size(panelSize, panelSize);
             pnl.Location = posVertex;
             pnl.Paint += new PaintEventHandler(ferOctogon);
             frmPare.Controls.Add(pnl);
@@ -69,6 +83,14 @@ namespace Poligons2D.CLASSES.SUBCLASSES
                 g.FillPolygon(new SolidBrush(colorInterior), points);
             }
             g.DrawPolygon(p, points);
+        }
+        public override Double Area()
+        {
+            return 2 * (1 + Math.Sqrt(2)) * Mida * Mida;
+        }
+        public override Double Perimetre()
+        {
+            return 8 * Mida;
         }
     }
 }

@@ -21,6 +21,18 @@ namespace Poligons2D.CLASSES.SUBCLASSES
             DiagonalB = xdiagonalB;
             dibuixarFigura();
         }
+        public ClRombe(ClBd xbd, String xNom, int xdiagonalA,int xdiagonalB, String xColor, int xTeInterior, String xGrup) : base(xbd, xNom, xColor, xTeInterior, xGrup)
+        {
+            String xsql = $"INSERT INTO Rombe (Nom, DiagonalA,DiagonalB) VALUES('{xNom}', {xdiagonalA}, {xdiagonalB})";
+            if (xbd.executarOrdre(xsql))
+            {
+                MessageBox.Show($"Poligon inserit correctament a la base de dades", "TOT BÉ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No s'ha pogut inserir el {xGrup} a la base de dades", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public ClRombe(Form xfrmMain, Point xcentre, Color xcolor, int xdiagonalA, int xdiagonalB) : base(xfrmMain, xcentre, xcolor)
         {
@@ -58,6 +70,16 @@ namespace Poligons2D.CLASSES.SUBCLASSES
                 g.FillPolygon(new SolidBrush(colorInterior), points);
             }
             g.DrawPolygon(p, points);
+        }
+        public override Double Area()
+        {
+            return (DiagonalA * DiagonalB) / 2.0;
+        }
+        public override Double Perimetre()
+        {
+            double ladoRombo = Math.Sqrt(Math.Pow(DiagonalA, 2) + Math.Pow(DiagonalB, 2)) / 2;
+
+            return 4 * ladoRombo;
         }
     }
 }

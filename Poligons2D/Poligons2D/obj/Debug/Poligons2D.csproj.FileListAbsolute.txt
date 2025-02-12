@@ -28,3 +28,19 @@ C:\Users\xavii\Desktop\DAM 3\C#\M6\M6UF2\Practiques\Poligons2D\Poligons2D\Poligo
 C:\Users\xavii\Desktop\DAM 3\C#\M6\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.CopyComplete
 C:\Users\xavii\Desktop\DAM 3\C#\M6\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.exe
 C:\Users\xavii\Desktop\DAM 3\C#\M6\M6UF2\Practiques\Poligons2D\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.pdb
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.exe.config
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.exe
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\Poligons2D.pdb
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.dll
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.xml
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.AssemblyReference.cache
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.FrmMain.resources
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.Properties.Resources.resources
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.GenerateResource.cache
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.CoreCompileInputs.cache
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.csproj.Up2Date
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.exe
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.pdb
+C:\Users\yasin\Desktop\DAM\M7-Interfícies\M7UF1\Servidor\PHP\Poligons2D\Poligons2D\Poligons2D\obj\Debug\Poligons2D.FORMULARIS.FrmControlPoligon.resources

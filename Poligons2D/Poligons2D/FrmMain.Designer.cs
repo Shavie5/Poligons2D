@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbPoligons = new System.Windows.Forms.Label();
             this.dgPoligons = new System.Windows.Forms.DataGridView();
             this.cbGrup = new System.Windows.Forms.ComboBox();
             this.lbGrup = new System.Windows.Forms.Label();
             this.tbInfo = new System.Windows.Forms.TextBox();
-            this.pbAdd = new System.Windows.Forms.PictureBox();
             this.lbInfo = new System.Windows.Forms.Label();
             this.pnlDibuixos = new System.Windows.Forms.Panel();
             this.lbDibuixos = new System.Windows.Forms.Label();
-            this.pbDelete = new System.Windows.Forms.PictureBox();
             this.chk_totes = new System.Windows.Forms.CheckBox();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.pbAdd = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // lbPoligons
@@ -65,9 +65,9 @@
             this.dgPoligons.AllowUserToAddRows = false;
             this.dgPoligons.AllowUserToDeleteRows = false;
             this.dgPoligons.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgPoligons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgPoligons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgPoligons.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgPoligons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -80,7 +80,7 @@
             this.dgPoligons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPoligons.Size = new System.Drawing.Size(713, 843);
             this.dgPoligons.TabIndex = 9;
-            this.dgPoligons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPoligons_CellContentClick);
+            this.dgPoligons.SelectionChanged += new System.EventHandler(this.dgPoligons_SelectionChanged);
             // 
             // cbGrup
             // 
@@ -112,23 +112,15 @@
             // 
             this.tbInfo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbInfo.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tbInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbInfo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbInfo.Location = new System.Drawing.Point(738, 811);
             this.tbInfo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tbInfo.Multiline = true;
             this.tbInfo.Name = "tbInfo";
             this.tbInfo.Size = new System.Drawing.Size(683, 137);
             this.tbInfo.TabIndex = 12;
-            // 
-            // pbAdd
-            // 
-            this.pbAdd.Image = global::Poligons2D.Properties.Resources.add50;
-            this.pbAdd.Location = new System.Drawing.Point(16, 962);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(67, 68);
-            this.pbAdd.TabIndex = 13;
-            this.pbAdd.TabStop = false;
+            this.tbInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbInfo
             // 
@@ -170,16 +162,6 @@
             this.lbDibuixos.Text = "Dibuixar Poligons";
             this.lbDibuixos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbDelete
-            // 
-            this.pbDelete.Image = global::Poligons2D.Properties.Resources.cancel50;
-            this.pbDelete.Location = new System.Drawing.Point(113, 962);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.pbDelete.Name = "pbDelete";
-            this.pbDelete.Size = new System.Drawing.Size(67, 68);
-            this.pbDelete.TabIndex = 17;
-            this.pbDelete.TabStop = false;
-            // 
             // chk_totes
             // 
             this.chk_totes.AutoSize = true;
@@ -190,6 +172,28 @@
             this.chk_totes.Text = "Tots";
             this.chk_totes.UseVisualStyleBackColor = true;
             this.chk_totes.CheckedChanged += new System.EventHandler(this.chk_totes_CheckedChanged);
+            // 
+            // pbDelete
+            // 
+            this.pbDelete.Image = global::Poligons2D.Properties.Resources.cancel50;
+            this.pbDelete.Location = new System.Drawing.Point(113, 962);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(67, 68);
+            this.pbDelete.TabIndex = 17;
+            this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            // 
+            // pbAdd
+            // 
+            this.pbAdd.Image = global::Poligons2D.Properties.Resources.add50;
+            this.pbAdd.Location = new System.Drawing.Point(16, 962);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pbAdd.Name = "pbAdd";
+            this.pbAdd.Size = new System.Drawing.Size(67, 68);
+            this.pbAdd.TabIndex = 13;
+            this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             // 
             // FrmMain
             // 
@@ -215,8 +219,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPoligons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -58,12 +58,21 @@
     <Compile Include="CLASSES\ClBd.cs" />
     <Compile Include="CLASSES\ClPoligons.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClCercle.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClElipse.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClHexagon.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClOctogon.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClPentagon.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClQuadrat.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClRectangle.cs" />
     <Compile Include="CLASSES\SUBCLASSES\ClRombe.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClTriangleIsosceles.cs" />
+    <Compile Include="CLASSES\SUBCLASSES\ClTriangleRectangle.cs" />
+    <Compile Include="FORMULARIS\FrmControlPoligon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIS\FrmControlPoligon.Designer.cs">
+      <DependentUpon>FrmControlPoligon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FORMULARIS\FrmControlPoligon.resx">
+      <DependentUpon>FrmControlPoligon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,9 +111,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FORMULARIS\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\cancel50.png" />
     <None Include="Resources\add50.png" />
