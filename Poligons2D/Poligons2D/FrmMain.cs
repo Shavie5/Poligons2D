@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Poligons2D.CLASSES.SUBCLASSES;
+using Poligons2D.CLASSES;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +10,17 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace Poligons2D
 {
+
     public partial class FrmMain : Form
     {
-        private Poligons2DEntities2 poligonsContext { get; set; } = new Poligons2DEntities2();       // necessitem una instància del Context
-
+        List<ClPoligons> llPoligons { get; set; } = new List<ClPoligons>();
+        ClBd clbd = null;
+        String xsql = "";
+        DataSet dSet { get; set; } = new DataSet();
         public FrmMain()
         {
             InitializeComponent();
@@ -22,11 +28,11 @@ namespace Poligons2D
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            chk_totes.Checked = false;
+            clbd = new ClBd();
             resizeItems();
-            testConnexio();
-            getPoligons();
-            omplirComboBox();
+            inicialitzarDades();
+            chk_totes.Checked = true;
+
         }
 
         #region *****************POSITIONS****************
@@ -82,47 +88,30 @@ namespace Poligons2D
         #endregion
 
         #region ******************SQL********************
-        private Boolean testConnexio()
+        private void inicialitzarDades()
         {
-            Boolean xb = false;
+            clbd.obrirConnexio();
 
-            Cursor = Cursors.WaitCursor;
-            try
+            if (clbd.testConnexio())
             {
-                xb = (poligonsContext.Database.Connection.State == ConnectionState.Open);
-                if (!xb)
-                {
-                    poligonsContext.Database.Connection.Open();
-                    xb = true;
-                }
+                getPoligons();
+                omplirComboBox();
             }
-            catch (Exception excp)
-            {
-                MessageBox.Show(excp.Message, "Excepció", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            Cursor = Cursors.Default;
-            return xb;
         }
         private void getPoligons()
         {
-            Cursor = Cursors.WaitCursor;
-            var qryPoligons = (from p in poligonsContext.Poligon
-                                 orderby p.Id
-                                 select new
-                                 {
-                                     Id = p.Id,
-                                     Area = p.Area,
-                                     Color = p.Color,
-                                     Interior = p.TeInterior,
-                                     Tipus = p.TipusPoligon
+            xsql = $"SELECT * FROM Poligon";
+            clbd.getDades(xsql, dSet);
+            dgPoligons.DataSource = dSet.Tables[0];
+            iniGrid();
 
-                                 });
-
-            dgPoligons.DataSource = qryPoligons.ToList();
-
-          
-
-            Cursor = Cursors.Default;
+        }
+        private void iniGrid()
+        {
+            dgPoligons.Columns[0].HeaderText = "Nom";
+            dgPoligons.Columns[1].HeaderText = "Color";
+            dgPoligons.Columns[2].HeaderText = "Interior"; 
+            dgPoligons.Columns[3].HeaderText = "Tipus"; 
         }
 
         #endregion
@@ -140,10 +129,10 @@ namespace Poligons2D
 
         private void cbGrup_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if(cbGrup != null)
-           {
+            if (cbGrup != null)
+            {
                 seleccionarPerTipus();
-           }
+            }
         }
 
         private void chk_totes_CheckedChanged(object sender, EventArgs e)
@@ -163,34 +152,235 @@ namespace Poligons2D
 
         private void omplirComboBox()
         {
-            if (dgPoligons.SelectedRows.Count > 0)
-            {
-                Cursor = Cursors.WaitCursor;
-                var qryCmbPoligon = (from p in poligonsContext.Poligon
-                                     orderby p.TipusPoligon
-                                     select p.TipusPoligon);
-
-                cbGrup.DataSource = qryCmbPoligon.ToList().Distinct().ToList(); ;
-                Cursor = Cursors.Default;
-
-            }
+                xsql = $"SELECT DISTINCT(TipusPoligon) FROM Poligon";
+                clbd.getDades(xsql, dSet);
+                cbGrup.DataSource = dSet.Tables[0];
+                cbGrup.DisplayMember = "Tipus";
+                cbGrup.ValueMember = "TipusPoligon";    
         }
 
         private void seleccionarPerTipus()
         {
-            var qrySeleccionarTipus = (from p in poligonsContext.Poligon
-                                       orderby p.Id
-                                       where p.TipusPoligon == cbGrup.SelectedValue.ToString()
-                                       select new
-                                       {
-                                           Id = p.Id,
-                                           Area = p.Area,
-                                           Color = p.Color,
-                                           Interior = p.TeInterior,
-                                           Tipus = p.TipusPoligon
-                                       });
-            dgPoligons.DataSource = qrySeleccionarTipus.ToList();
-            Cursor = Cursors.Default;
+            string tipus = cbGrup.SelectedValue.ToString();
+            xsql = $"SELECT * FROM Poligon WHERE TipusPoligon = '{tipus}'";
+            clbd.getDades(xsql, dSet);
+            dgPoligons.DataSource = dSet.Tables[0];
+            iniGrid();
+        }
+
+        private void dgPoligons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            llPoligons.Clear();
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Panel)
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose(); // Libera los recursos
+                }
+            }
+
+            Boolean Interior = (Boolean)dgPoligons.SelectedRows[0].Cells["TeInterior"].Value;
+            string tipus = dgPoligons.SelectedRows[0].Cells["TipusPoligon"].Value.ToString();
+            Color color = Color.FromName(dgPoligons.SelectedRows[0].Cells["Color"].Value.ToString());
+            string nom = dgPoligons.SelectedRows[0].Cells["Nom"].Value.ToString();
+            switch (tipus)
+
+            {
+                case "Quadrat":
+                    dibuixarUnQuadrat(Interior, color, nom);
+                    break;
+                case "Cercle":
+                    dibuixarUnCercle(Interior, color, nom);
+                    break;
+                    //case "TriangleRectangle":
+                    //    dibuixarUnTriangle();
+                    //    break;
+                    //case "TriangleIsosceles":
+                    //    dibuixarUnTriangle();
+                    //    break;
+                    case "Rectangle":
+                        dibuixarUnRectangle(Interior, color, nom);
+                        break;
+                    //case "Elipse":
+                    //    dibuixarUnaElipse();
+                    //    break;
+                    case "Hexagon":
+                        dibuixarUnHexagon(Interior, color, nom);
+                        break;
+                    case "Octogon":
+                        dibuixarUnOctogon(Interior, color, nom);
+                        break;
+                    case "Pentagon":
+                        dibuixarUnPentagon(Interior, color, nom);
+                        break;
+                    case "Rombe":
+                        dibuixarUnRombe(Interior, color, nom);
+                        break;
+            }
+        }
+        private void dibuixarUnQuadrat(Boolean Interior, Color color, String nom)
+        {
+            ClQuadrat poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width/2, lbDibuixos.Height + 75 + pnlDibuixos.Height/2);
+            xsql = $"SELECT Mida FROM Quadrat WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int mida = (Int32)fila[0];
+
+            if (Interior == true)
+            {
+                poligon = new ClQuadrat(this, point, color, mida);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClQuadrat(this, point, mida);
+                llPoligons.Add(poligon);
+            }
+
+        }
+        private void dibuixarUnCercle(Boolean Interior, Color color, String nom)
+        {
+            ClCercle poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT Radi FROM Cercle WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int radi = (Int32)fila[0];
+
+            if (Interior == true)
+            {
+                poligon = new ClCercle(this, point, color, radi);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClCercle(this, point, radi);
+                llPoligons.Add(poligon);
+            }
+        }
+        private void dibuixarUnRectangle(Boolean Interior, Color color, String nom)
+        {
+            ClRectangle poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT Base, Alçada FROM Rectangle WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int Base = (Int32)fila[0];
+            int Alçada = (Int32)fila[1];
+
+            if (Interior == true)
+            {
+                poligon = new ClRectangle(this, point, color, Base, Alçada);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClRectangle(this, point, Base, Alçada);
+                llPoligons.Add(poligon);
+            }
+        }
+
+        private void dibuixarUnHexagon(Boolean Interior, Color color, String nom)
+        {
+            ClHexagon poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT Costat FROM Hexagon WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int costat = (Int32)fila[0];
+            
+
+            if (Interior == true)
+            {
+                poligon = new ClHexagon(this, point, color, costat);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClHexagon(this, point, costat);
+                llPoligons.Add(poligon);
+            }
+        }
+        private void dibuixarUnOctogon(Boolean Interior, Color color, String nom)
+        {
+            ClOctogon poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT Costat FROM Octogon WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int costat = (Int32)fila[0];
+
+
+            if (Interior == true)
+            {
+                poligon = new ClOctogon(this, point, color, costat);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClOctogon(this, point, costat);
+                llPoligons.Add(poligon);
+            }
+        }
+        private void dibuixarUnPentagon(Boolean Interior, Color color, String nom)
+        {
+            ClPentagon poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT Costat FROM Pentagon WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int costat = (Int32)fila[0];
+
+
+            if (Interior == true)
+            {
+                poligon = new ClPentagon(this, point, color, costat);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClPentagon(this, point, costat);
+                llPoligons.Add(poligon);
+            }
+        }
+        private void dibuixarUnRombe(Boolean Interior, Color color, String nom)
+        {
+            ClRombe poligon;
+            Point point = new Point(lbPoligons.Width + 55 + pnlDibuixos.Width / 2, lbDibuixos.Height + 75 + pnlDibuixos.Height / 2);
+            xsql = $"SELECT DiagonalA, DiagonalB FROM Rombe WHERE Nom = '{nom}'";
+            clbd.getDades(xsql, dSet);
+            DataRow fila = dSet.Tables[0].Rows[0];
+
+
+            int diagonalA = (Int32)fila[0];
+            int diagonalB = (Int32)fila[1];
+
+            if (Interior == true)
+            {
+                poligon = new ClRombe(this, point, color, diagonalA, diagonalB);
+                llPoligons.Add(poligon);
+            }
+            else
+            {
+                poligon = new ClRombe(this, point, diagonalA, diagonalB);
+                llPoligons.Add(poligon);
+            }
         }
     }
+    
 }

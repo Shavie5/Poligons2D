@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Poligons2DModelStoreContainer" CdmEntityContainer="Poligons2DEntities">
+  <EntityContainerMapping StorageEntityContainer="Poligons2DModelStoreContainer" CdmEntityContainer="Poligons2DEntities1">
     <EntitySetMapping Name="Cercle">
       <EntityTypeMapping TypeName="Poligons2DModel.Cercle">
         <MappingFragment StoreEntitySet="Cercle">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Radi" ColumnName="Radi" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -12,7 +12,7 @@
     <EntitySetMapping Name="Elipse">
       <EntityTypeMapping TypeName="Poligons2DModel.Elipse">
         <MappingFragment StoreEntitySet="Elipse">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="RadiA" ColumnName="RadiA" />
           <ScalarProperty Name="RadiB" ColumnName="RadiB" />
         </MappingFragment>
@@ -21,65 +21,79 @@
     <EntitySetMapping Name="Hexagon">
       <EntityTypeMapping TypeName="Poligons2DModel.Hexagon">
         <MappingFragment StoreEntitySet="Hexagon">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Costat" ColumnName="Costat" />
-          <ScalarProperty Name="Apotema" ColumnName="Apotema" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Octogon">
       <EntityTypeMapping TypeName="Poligons2DModel.Octogon">
         <MappingFragment StoreEntitySet="Octogon">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Costat" ColumnName="Costat" />
-          <ScalarProperty Name="Apotema" ColumnName="Apotema" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pentagon">
       <EntityTypeMapping TypeName="Poligons2DModel.Pentagon">
         <MappingFragment StoreEntitySet="Pentagon">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Costat" ColumnName="Costat" />
-          <ScalarProperty Name="Apotema" ColumnName="Apotema" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Poligon">
       <EntityTypeMapping TypeName="Poligons2DModel.Poligon">
         <MappingFragment StoreEntitySet="Poligon">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="TeInterior" ColumnName="TeInterior" />
           <ScalarProperty Name="TipusPoligon" ColumnName="TipusPoligon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Quadrats">
-      <EntityTypeMapping TypeName="Poligons2DModel.Quadrats">
-        <MappingFragment StoreEntitySet="Quadrats">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="Quadrat">
+      <EntityTypeMapping TypeName="Poligons2DModel.Quadrat">
+        <MappingFragment StoreEntitySet="Quadrat">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Mida" ColumnName="Mida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rectangle">
+      <EntityTypeMapping TypeName="Poligons2DModel.Rectangle">
+        <MappingFragment StoreEntitySet="Rectangle">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Base" ColumnName="Base" />
+          <ScalarProperty Name="Alçada" ColumnName="Alçada" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rombre">
       <EntityTypeMapping TypeName="Poligons2DModel.Rombre">
         <MappingFragment StoreEntitySet="Rombre">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DiagonalA" ColumnName="DiagonalA" />
+          <ScalarProperty Name="DiagonalB" ColumnName="DiagonalB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TriangleIsosceles">
+      <EntityTypeMapping TypeName="Poligons2DModel.TriangleIsosceles">
+        <MappingFragment StoreEntitySet="TriangleIsosceles">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Base" ColumnName="Base" />
           <ScalarProperty Name="Alçada" ColumnName="Alçada" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Triangle">
-      <EntityTypeMapping TypeName="Poligons2DModel.Triangle">
-        <MappingFragment StoreEntitySet="Triangle">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="TriangleRectangle">
+      <EntityTypeMapping TypeName="Poligons2DModel.TriangleRectangle">
+        <MappingFragment StoreEntitySet="TriangleRectangle">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="Base" ColumnName="Base" />
           <ScalarProperty Name="Alçada" ColumnName="Alçada" />
-          <ScalarProperty Name="Tipus" ColumnName="Tipus" />
+          <ScalarProperty Name="Direccio" ColumnName="Direccio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

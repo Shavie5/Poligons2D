@@ -16,5 +16,24 @@ namespace Poligons2D.CLASSES
         protected Point posCentre { get; set; }                // posició del centre del Panel   
         protected Color colorInterior { get; set; }             // color de l'interior
         protected Boolean teInterior { get; set; }
+
+
+        protected ClPoligons(Form xfrmMain, Point xpos)
+        {
+            frmPare = xfrmMain;
+            colorInterior = Color.Empty;
+            teInterior = false;
+            posCentre = xpos;
+            //iniPanell();
+        }
+
+        protected ClPoligons(Form xfrmMain, Point xpos, Color xcolor)
+        {
+            frmPare = xfrmMain;
+            colorInterior = xcolor;
+            teInterior = true;
+            posCentre = xpos;
+            //iniPanell();
+        }
     }
 }

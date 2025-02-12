@@ -80,6 +80,7 @@
             this.dgPoligons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgPoligons.Size = new System.Drawing.Size(713, 843);
             this.dgPoligons.TabIndex = 9;
+            this.dgPoligons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPoligons_CellContentClick);
             // 
             // cbGrup
             // 
